@@ -1,4 +1,4 @@
-[{
+﻿[{
 	"src":"http://music.163.com/song/media/outer/url?id=16323627.mp3",
 	"title":"time to say goodbye",
 	"auther":"Sarah Brightman",
@@ -8,17 +8,18 @@
 	"src":"http://music.163.com/song/media/outer/url?id=185986.mp3",
 	"title":"七里香",
 	"auther":"jay zhou",
-	"img":"http://f.hiphotos.baidu.com/baike/pic/item/d01373f082025aaff92dd92bfaedab64034f1a36.jpg"
+	"img":"https://ws1.sinaimg.cn/large/a16f8cc7gy1fp7097p16yj20p30rtq7u.jpg"
 },
 {
 	"src":"http://music.163.com/song/media/outer/url?id=186016.mp3",
 	"title":"晴天",
 	"auther":"周杰伦",
-	"img":"https://pic4.zhimg.com/80/95c5a42721a00f579317a7763f3fec7c_hd.jpg"
+	"img":"https://ws1.sinaimg.cn/large/a16f8cc7gy1fp709yu1euj20go0c2wgr.jpg"
 },
 {
 	"src":"http://music.163.com/song/media/outer/url?id=368962.mp3",
 	"title":"香草吧噗",
 	"auther":"南拳妈妈",
-	"img":"http://img0.imgtn.bdimg.com/it/u=2180396318,3813996116&fm=27&gp=0.jpg"
+	"img":"https://ws1.sinaimg.cn/large/a16f8cc7gy1fp70adb84pj20cg05zt9i.jpg"
 }]
+

@@ -121,11 +121,11 @@
 				<div class="control">
 					<span class="back"><i class="fa fa-step-backward"></i></span>
 					<span class="play"><i class="fa fa-pause"></i></span>
-					<span class="ford"><i class="fa fa-step-forward"></i></span>
+					<span class="forward"><i class="fa fa-step-forward"></i></span>
 				</div>
 				<div class="info">
-					<div class="title"></div>
-					<div class="auther"></div>
+					<div class="title">my song</div>
+					<div class="auther">lionao</div>
 				</div>
 			</div>
 			<div class="progress">
@@ -136,6 +136,105 @@
 				<div class="time">0:00</div>
 			</div>
 		</div>
+		<ul class="list">
+			<!-- <li></li> -->
+		</ul>
 	</div>
+	<script>
+
+	    function $(selector){
+	      return document.querySelector(selector)
+	    }
+	    function $$(selector){
+	      return document.querySelectorAll(selector)
+	    }
+	    var musicList = []
+		var currentIndex = 0
+		var clock
+		var audio = new Audio()
+		audio.autoplay = true
+
+		getMusicList(function(list){
+			musicList = list
+			loadMusic(list[currentIndex])
+		})
+
+
+		// getMusicList(function(list){
+		// 	loadMusic(list[currentIndex])
+		// })
+		audio.ontimeupdate = function(){
+			console.log(this.currentTime)
+			$('.musicbox .progress-now').style.width = (this.currentTime/this.duration)*100 + '%'
+		}
+
+		audio.onplay = function(){
+			clock = setInterval(function(){
+				var min = Math.floor(audio.currentTime/60)
+				var sec = Math.floor(audio.currentTime)%60 + ''
+				sec=sec.length===2?sec:'0'+ sec
+				$('.musicbox .time').innerText = min + ':'+ sec
+			},1000)
+		}
+
+		audio.onpause = function(){
+			clearInterval(clock)
+		}
+		audio.onended = function(){
+			currentIndex = (++currentIndex)%musicList.length
+			loadMusic(musicList[currentIndex])
+		}
+
+		$('.musicbox .play').onclick = function(){
+			if(audio.paused){
+				audio.play()
+				this.querySelector('.fa').classList.add('fa-play')
+				this.querySelector('.fa').classList.remove('fa-pause')
+			}
+			else{
+				audio.pause()
+				this.querySelector('.fa').classList.remove('fa-play')
+				this.querySelector('.fa').classList.add('fa-pause')
+			}
+		}
+		$('.musicbox .forward').onclick = function(){
+			currentIndex = (++currentIndex)%musicList.length
+			loadMusic(musicList[currentIndex])
+		}
+
+		$('.musicbox .back').onclick = function(){
+			currentIndex = (musicList.length + --currentIndex)%musicList.length
+			loadMusic(musicList[currentIndex])
+		}
+		$('.musicbox .bar').onclick = function(e){
+			var percent = e.offsetX / parseInt(getComputedStyle(this).width)
+			console.log(percent)
+			audio.currentTime = audio.duration * percent
+		}
+
+		function getMusicList(callback){
+			var xhr = new XMLHttpRequest()
+			xhr.open('GET','/music.json',true)
+			xhr.onload = function(){
+				if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+					callback(JSON.parse(this.responseText))
+				}else {
+				console.log('获取数据失败')}
+			}
+			xhr.onerror = function(){
+				console.log('error')
+			}
+			xhr.send()
+		}
+		function loadMusic(musicObj){
+			console.log('begin play',musicObj)
+			audio.src = musicObj.src
+			$('.musicbox .title').innerText = musicObj.title
+			$('.musicbox .auther').innerText = musicObj.auther
+			$('.cover').style.backgroundImage = 'url(' + musicObj.img + ')'
+			//audio.src = musicObj.src
+			//$('.cover').setAttribute('background.url', 'url('+ musicObj.img +')' +' center'+' center'+' no-repeat')
+			}
+	</script>
 </body>
 </html>
