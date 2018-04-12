@@ -108,27 +108,29 @@ section>h2:first-child{
 }
 
 .lastestMusic{}
-.lastestMusic p{
+.lastestMusic p , .hot p{
 	text-align: center;
 }
 
-.lastestMusic >ol{
+.lastestMusic >ol, .hot >ol{
 	padding-left: calc(2.6vw + 2px);
 }
 
-.lastestMusic >ol >li{
+.lastestMusic >ol >li, .hot >ol >li{
 	border-bottom: 1px solid #e2e2e3;
 	padding: 1vw 0;
 	position: relative;
 }
-.lastestMusic >ol >li a{
+.lastestMusic >ol >li a , .hot >ol >li a{
 	text-decoration: none;
 	color: inherit;
 }
-.lastestMusic >ol >li h3{
+.lastestMusic >ol >li h3 , .hot >ol >li h3{
 	font-size: 4.53vw;
+	padding-bottom: 1vw;
+	font-weight: normal;
 }
-.lastestMusic >ol >li p{
+.lastestMusic >ol >li p , .hot >ol >li p{
 	font-size: 3.2vw;
 	color: #888;
 	line-height: 1;
@@ -136,7 +138,7 @@ section>h2:first-child{
 	align-items: center;
 }
 
-.lastestMusic > ol > li svg.play{
+.lastestMusic > ol > li svg.play , .hot > ol > li svg.play{
 	width: 5.9vw;
 	height: 5.9vw;
 	position: absolute;
@@ -145,7 +147,7 @@ section>h2:first-child{
 	transform: translateY(-50%);
 	fill: #aaa;
 }
-.lastestMusic > ol > li svg.sq{
+.lastestMusic > ol > li svg.sq , .hot > ol > li svg.sq{
 	width: 3.2vw;
 	height: 3.2vw;
 	margin-right: 0.5em;
@@ -187,7 +189,7 @@ section.art .copyright{
 	color: #888;
 }
 
-.tabContent .hotBg{
+.tabContent .hotbg{
 	position: relative;
     padding-top: 25vw;
     min-height: 39vw;
