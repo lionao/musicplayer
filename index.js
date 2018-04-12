@@ -36,7 +36,7 @@ $(function(){
 								<svg class="sq">
 									<use xlink:href="#icon-sq"></use>
 								</svg>
-								演唱者 - 专辑</p>
+								${i.singer} - 专辑</p>
 								<svg class="play">
 									<use xlink:href="#icon-play-circle"></use>
 								</svg>
