@@ -219,9 +219,27 @@ section.art .copyright{
 	margin-top: 20vw;
 }
 
-#searchSong {
-	line-height: 10vw;
+.inputcover{
+	background: #ebecec;
+	border:none;
+	border-radius: 15vw;
+	display: flex;
+	align-items: center;
+	margin:10vw 10vw;
 	height: 10vw;
-	border:1px solid red;
-	border-radius: 3vw;
+	width: 80%;
+}
+.inputcover .search{
+	width: 7vw;
+	height: 7vw;
+	margin-left: 4vw;
+	fill: #cabdb8;
+}
+#searchSong {
+	background: #ebecec;
+	font-size: 5vw;
+	line-height: 9vw;
+	outline:none;
+	border:1px solid #ebecec;margin-left: 3vw;
+	width: 80%;
 }

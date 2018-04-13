@@ -107,11 +107,11 @@ $(function(){
 			let result = database.filter(function(item){
 				return item.name.indexOf(keyword)>=0
 			})
+			$('#tab3Loading').remove()
 			setTimeout(function(){
 				resolve(result)
 			},(Math.random()*200 + 1000))
 		})
 	}
-	window.search = search
 })
 
